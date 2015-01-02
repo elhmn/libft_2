@@ -2,15 +2,15 @@
 
 NAME = unit_test
 CC = gcc
-CFLAGS = -pedantic -O3 -I./..
-LDFLAGS = -L./.. -lft
+CFLAGS = -I./..
+LDFLAGS = -L../ -lft
 SOURCE = main.c unit_test.c
 OBJ = $(SOURCE:.c=.o)
 
 all : $(NAME)
 
 
-$(NAME): $(OBJ) ./libft.a
+$(NAME): $(OBJ) ../libft.a
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c

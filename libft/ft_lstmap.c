@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/29 06:26:04 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/04/20 18:44:18 by bmbarga          ###   ########.fr       */
+/*   Updated: 2015/01/02 22:21:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem))
 {
 	t_list	*lst_2;
 
-	if (lst)
+	if (lst && f)
 	{
 		lst_2 = f(lst);
 		lst_2 = ft_lstnew(lst_2->content, lst_2->content_size);
