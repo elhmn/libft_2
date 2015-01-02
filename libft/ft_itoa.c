@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 05:50:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/04/20 17:36:54 by bmbarga          ###   ########.fr       */
+/*   Updated: 2015/01/02 20:20:09 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		*ft_itoa(int n)
 	int		size;
 	char	*car_nbr;
 
-	if (n > MAX_NBR || n < MIN_NBR)
+	if (n > MAX_NBR || n <= MIN_NBR)
 	{
 		if (!(car_nbr = malloc(sizeof(char))))
 			return (NULL);
