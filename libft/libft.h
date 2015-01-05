@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:46:18 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/02 20:19:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2015/01/05 17:16:50 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void				ft_memprint(void *ptr, size_t size);
 void				*my_memalloc(size_t size);
 char				*ft_itoa(int n);
 char				**ft_strsplit(char const *s, char c);
+int					ft_isspace(int c);
 
 /*
 ** Part bonus

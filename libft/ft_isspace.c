@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/05 17:39:27 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/05 17:39:34 by bmbarga          ###   ########.fr       */
+/*   Created: 2015/01/05 17:20:34 by bmbarga           #+#    #+#             */
+/*   Updated: 2015/01/05 17:20:39 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *s1, const char *s2, size_t n)
+int ft_isspace(int c)
 {
-	size_t len;
-
-	if (!*s2)
-		return ((char *)s1);
-	len = 0;
-	while (s2[len])
-		len++;
-	while (n-- >= len && *s1)
-	{
-		if (*s1 == *s2 && !ft_memcmp(s1, s2, len))
-			return ((char *)s1);
-		s1++;
-	}
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+			|| c == ' ')
+		return (1);
 	return (0);
 }

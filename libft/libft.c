@@ -723,7 +723,7 @@ static void	test_lstnew(void)
 		free(lst->content);
 		free(lst);
 	}
-//	lst = ft_lstnew(str, SIZE_MAX);
+//	lst = ft_lstnew(str, SIZE_MAX); /********************* AVOID ***********************/
 //	if (!lst)
 //		test[7] = 0;
 //	else
@@ -1552,7 +1552,7 @@ static void	test_strnew(void)
 	init(ctrl, 3, 0);
 	init(test, 3, 1);
 #ifdef SEGFAULT_ME
-//	if (!(str = ft_strnew(SIZE_MAX)))
+//	if (!(str = ft_strnew(SIZE_MAX))) /*********************************** AVOID ***********************************/
 //		test[2] = 0;
 //	free(str);
 #endif
@@ -1566,7 +1566,7 @@ static void	test_strnew(void)
 		test[1] = 0;
 	free(str);
 #ifdef SEGFAULT_ME
-//	print_test_results(test, ctrl, 3, warning);
+//	print_test_results(test, ctrl, 3, warning); /********************* AVOID ************************/
 #else
 	print_test_results(test, ctrl, 2, warning);
 #endif
@@ -1762,7 +1762,7 @@ static void	test_strsub(void)
 	ft_strsub(NULL, 0, 5);
 	ft_strsub(NULL, 5, 5);
 	free(ft_strsub("test", 0, 0));
-	//	free(ft_strsub("test", 0, -1000000));
+	//	free(ft_strsub("test", 0, -1000000)); /************************************* AVOID ********************************/
 #endif
 	dst = ft_strsub(src, 0, strlen(src));
 	if (dst < src || dst > src + strlen(src))
@@ -1909,7 +1909,7 @@ int			main(void)
 	test_isascii();
 	test_isdigit();
 	test_isprint();
-//	test_isspace();
+//	test_isspace();	/************************ AVOID *****************************/
 	test_itoa();
 	test_lstadd();
 	test_lstdel();
@@ -1937,7 +1937,7 @@ int			main(void)
 	test_striteri();
 	test_strjoin();
 	test_strlcat();
-//	test_strlcpy();
+//	test_strlcpy(); /************************ AVOID ****************************/
 	test_strlen();
 	test_strmap();
 	test_strmapi();

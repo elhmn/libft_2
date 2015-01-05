@@ -6,7 +6,7 @@
 /*   By: darresti <darresti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 19:30:29 by darresti          #+#    #+#             */
-/*   Updated: 2015/01/02 20:55:27 by bmbarga          ###   ########.fr       */
+/*   Updated: 2015/01/05 17:31:26 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <limits.h>
-#include <stdint.h>
+
 #define RESET	"\033[0m"
 #define BOLD	"\033[1m"
-#define	UNBOLD	"\033[21m" /* UNBOLD not supported by zsh */
+//#define	UNBOLD	"\033[21m" /* UNBOLD not supported by zsh */
 #define RED		"\033[31m"
 #define GREEN	"\033[32m"
 #define YELLOW	"\033[33m"
@@ -648,7 +648,7 @@ static void	test_lstiter(void)
 	init(ctrl, 1, 0);
 	init(test, 1, 1);
 #ifdef SEGFAULT_ME
-	//ft_lstiter(NULL, &ft_liter);
+	ft_lstiter(NULL, &f_liter);
 	lst = ft_lstnew("test string", sizeof(char) * 12);
 	ft_lstiter(lst, NULL);
 	free(lst->content);
@@ -677,7 +677,7 @@ static void	test_lstmap(void)
 	init(ctrl, 3, 0);
 	init(test, 3, 1);
 #ifdef SEGFAULT_ME
-	//ft_lstmap(NULL, &ft_lmap);
+	ft_lstmap(NULL, &f_lmap);
 	lst1 = ft_lstnew("test string", sizeof(char) * 12);
 	ft_lstmap(lst1, NULL);
 	free(lst1->content);
@@ -736,14 +736,14 @@ static void	test_lstnew(void)
 		free(lst->content);
 		free(lst);
 	}
-//	lst = ft_lstnew(str, SIZE_MAX);
-//	if (!lst)
-//		test[7] = 0;
-//	else
-//	{
-//		free(lst->content);
-//		free(lst);
-//	}
+	lst = ft_lstnew(str, SIZE_MAX);
+	if (!lst)
+		test[7] = 0;
+	else
+	{
+		free(lst->content);
+		free(lst);
+	}
 	lst = ft_lstnew(str, 0);
 	if (lst)
 	{
@@ -1263,7 +1263,7 @@ static void	test_strjoin(void)
 	print_test_results(test, ctrl, 5, warning);
 #endif	
 }
-/*
+
 static void	test_strlcat(void)
 {
 	size_t	n;
@@ -1304,7 +1304,7 @@ static void	test_strlcat(void)
 	free(dst2);
 	print_test_results(test, ctrl, 4, NULL);
 }
-
+/*
 static void	test_strlcpy(void)
 {
 	int		test[6], ctrl[6];
@@ -1567,11 +1567,11 @@ static void	test_strnew(void)
 	print_test_name("strnew");
 	init(ctrl, 3, 0);
 	init(test, 3, 1);
-//#ifdef SEGFAULT_ME
+#ifdef SEGFAULT_ME
 	if (!(str = ft_strnew(SIZE_MAX)))
 		test[2] = 0;
 	free(str);
-//#endif
+#endif
 	ctrl[0] = 512;
 	str = ft_strnew(ctrl[0]);
 	test[0] = 0;
@@ -1587,7 +1587,7 @@ static void	test_strnew(void)
 	print_test_results(test, ctrl, 2, warning);
 #endif
 }
-/*
+
 static void	test_strnstr(void)
 {
 	int		test[14], ctrl[14];
@@ -1626,7 +1626,7 @@ static void	test_strnstr(void)
 		test[13] = 0;
 	print_test_results_summary(test, ctrl, 14);
 }
-*/
+
 static void	test_strrchr(void)
 {
 	int		test[3], ctrl[3];
@@ -1770,7 +1770,6 @@ static void	test_strsub(void)
 {
 	int		test[9], ctrl[9], warning[]={5, 6, 7, 8, -1};
 	char	src[]="test", *dst;
-	char	*tmp;
 
 	print_test_name("strsub");
 	init(ctrl, 9, 0);
@@ -1779,9 +1778,6 @@ static void	test_strsub(void)
 	ft_strsub(NULL, 0, 5);
 	ft_strsub(NULL, 5, 5);
 	free(ft_strsub("test", 0, 0));
-	tmp = ft_strsub("test", 0, 10000000);
-	if (!tmp)
-		printf("tmp set to NULL\n");
 	free(ft_strsub("test", 0, 10000000));
 #endif
 	dst = ft_strsub(src, 0, strlen(src));
@@ -1956,7 +1952,7 @@ int			main(void)
 	test_striter();
 	test_striteri();
 	test_strjoin();
-//	test_strlcat();
+	test_strlcat();
 //	test_strlcpy(); /* not required */
 	test_strlen();
 	test_strmap();
@@ -1966,7 +1962,7 @@ int			main(void)
 	test_strncpy();
 	test_strnequ();
 	test_strnew();
-//	test_strnstr();
+	test_strnstr();
 	test_strrchr();
 	test_strsplit();
 	test_strstr();
