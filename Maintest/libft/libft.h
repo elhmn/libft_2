@@ -6,14 +6,14 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:46:18 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/02 20:19:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/04/20 17:40:01 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define MAX_NBR 2147483647
-# define MIN_NBR -2147483648
+# define MIN_NBR -2147483647
 # include <string.h>
 
 typedef struct		s_list

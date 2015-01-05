@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/20 15:51:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/04/20 16:34:05 by bmbarga          ###   ########.fr       */
+/*   Updated: 2015/01/03 11:34:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_atoi(const char *str)
 	sign = 1;
 	tmp = str;
 	while ((*tmp == '\n' || *tmp == '\v' || *tmp == '\t')
-			|| (*tmp == '\f' || *tmp == ' ' || *tmp == '\r' || *tmp == '+'))
+			|| (*tmp == '\f' || *tmp == ' ' || *tmp == '\r' || *tmp == '\033' || *tmp == '+'))
 		tmp++;
 	if (*tmp == '-')
 	{

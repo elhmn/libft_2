@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 02:31:24 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/02 21:06:27 by bmbarga          ###   ########.fr       */
+/*   Updated: 2015/01/03 11:31:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*ptr;
-	size_t	i;
+	char			*ptr;
+	unsigned int	i;
 
 	i = 0;
 	ptr = (char*)malloc(sizeof(char) * (size + 1));

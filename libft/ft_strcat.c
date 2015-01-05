@@ -20,15 +20,12 @@ char		*ft_strcat(char *dest, const char *src)
 
 	i = 0;
 	len = ft_strlen(dest);
-	if (dest && src)
+	while (src && src[i])
 	{
-		while (src[i])
-		{
-			dest[len] = src[i];
-			i++;
-			len++;
-		}
-		dest[len] = '\0';
+		dest[len] = src[i];
+		i++;
+		len++;
 	}
+	dest[len] = '\0';
 	return (dest);
 }

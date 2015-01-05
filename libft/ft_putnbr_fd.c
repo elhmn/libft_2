@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 01:54:18 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/02 22:20:31 by bmbarga          ###   ########.fr       */
+/*   Updated: 2014/04/20 16:04:41 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ static void	ft_put_aux_nbr_fd(int n, int fd)
 
 void		ft_putnbr_fd(int n, int fd)
 {
-	if (n == MIN_NBR)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
+	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
 		ft_put_aux_nbr_fd(n * -1, fd);
